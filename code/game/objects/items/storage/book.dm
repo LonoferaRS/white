@@ -313,6 +313,6 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 /obj/item/storage/book/arabic/attack_self(mob/user)
 	if(!user.can_read(src))
 		return FALSE
-	to_chat(user, span_notice("Вы начали понимать язык взрывотехники."))
+	to_chat(user, span_notice("Начинаю понимать язык взрывотехники."))
 	user.grant_language(/datum/language/arab/)
 	qdel(src)
