@@ -124,4 +124,4 @@
 	display_name = "Азбука Арабского"
 	path = /obj/item/storage/book/arabic
 	allowed_roles = list("Scientist","Chemist")
-	cost = 500
+	cost = 50000
