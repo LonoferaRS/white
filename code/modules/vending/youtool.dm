@@ -31,6 +31,6 @@
 /obj/machinery/vending/tool/canLoadItem(obj/item/I,mob/user)
 	return (I.type in products)
 
-/obj/item/vending_refill/autodrobe
+/obj/item/vending_refill/tool
 	machine_name = "YouTool"
 	icon_state = "refill_costume"
