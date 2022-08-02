@@ -553,6 +553,8 @@
 	req_components = list(/obj/item/vending_refill/custom = 1)
 
 	var/static/list/vending_names_paths = list(
+		/obj/machinery/vending/custom = "частный торговый автомат",
+		/obj/item/circuitboard/machine/vendor = "частный торговый автомат",
 		/obj/machinery/vending/boozeomat = "Booze-O-Mat",
 		/obj/machinery/vending/coffee = "Solar's Best Hot Drinks",
 		/obj/machinery/vending/snack = "Getmore Chocolate Corp",
@@ -589,11 +591,14 @@
 		/obj/machinery/vending/sustenance = "Sustenance Vendor",
 		/obj/machinery/vending/dinnerware = "Plasteel Chef's Dinnerware Vendor",
 		/obj/machinery/vending/cart = "PTech",
+		/obj/machinery/vending/tool = "YouTool",
 		/obj/machinery/vending/robotics = "Robotech Deluxe",
 		/obj/machinery/vending/engineering = "Robco Tool Maker",
 		/obj/machinery/vending/sovietsoda = "BODA",
 		/obj/machinery/vending/security = "SecTech",
 		/obj/machinery/vending/modularpc = "Deluxe Silicate Selections",
+		/obj/machinery/vending/chetverochka/pharma = "Аптечный вендомат (ОАО Четверочка-вендиг)",
+		/obj/machinery/vending/chetverochka = "Продуктовый вендомат (ОАО Четверочка-вендиг)",
 		/obj/machinery/vending/custom = "Custom Vendor")
 
 /obj/item/circuitboard/machine/vendor/attackby(obj/item/I, mob/user, params)
