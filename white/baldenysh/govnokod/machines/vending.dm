@@ -23,6 +23,14 @@
 	payment_department = ACCOUNT_SRV
 	light_mask = "chetverochka-light-mask"
 
+/obj/machinery/vending/chetverochka/canLoadItem(obj/item/I,mob/user)
+	return (I.type in products)
+
+/obj/item/vending_refill/autodrobe
+	machine_name = "Продуктовый вендомат (ОАО Четверочка-вендиг)"
+	icon_state = "refill_snack"
+
+
 /obj/machinery/vending/chetverochka/pharma
 	name = "Аптечный вендомат (ОАО Четверочка-вендиг)"
 	icon_state = "chet_pharma"
@@ -46,3 +54,10 @@
 	default_price = CARGO_CRATE_VALUE * 1
 	extra_price = CARGO_CRATE_VALUE * 2
 	payment_department = ACCOUNT_MED
+
+/obj/machinery/vending/chetverochka/canLoadItem(obj/item/I,mob/user)
+	return (I.type in products)
+
+/obj/item/vending_refill/autodrobe
+	machine_name = "Аптечный вендомат (ОАО Четверочка-вендиг)"
+	icon_state = "refill_medical"
