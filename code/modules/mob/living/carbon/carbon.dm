@@ -239,6 +239,9 @@
 		if(do_after(src, buckle_time, target = src, timed_action_flags = IGNORE_HELD_ITEM))
 			if(!buckled)
 				return
+			if(O == /obj/item/restraints/handcuffs/cable && job in GLOB.security_positions)
+				to_chat(src, span_notice("Вспоминаю курс \"Как не быть закованным в стяжки\" и пытаюсь повторить действия инструктора."))
+
 			if(prob(buckle_break_chance))
 				buckled.user_unbuckle_mob(src,src)
 			else
