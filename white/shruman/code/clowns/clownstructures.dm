@@ -23,7 +23,7 @@
 	name = "Дышалка"
 	desc = "Легкие планеты клоунов. Ничего не вдыхают и создают веселящий газ из пустоты."
 	icon_state = "clownatmos"
-	cost = 240
+	cost = 120
 	icon = 'icons/obj/device.dmi'
 	resistance_flags = ACID_PROOF|FIRE_PROOF
 	var/spawn_temp = T20C
@@ -173,7 +173,7 @@
 	canSmoothWith = list(SMOOTH_GROUP_ALIEN_WALLS)
 	girder_type = null
 	sheet_type = /mob/living/simple_animal/hostile/clown/worm
-	var/cost = 100
+	var/cost = 50
 
 
 
@@ -219,7 +219,7 @@
 	mob_types = list(/mob/living/simple_animal/hostile/clown, /mob/living/simple_animal/hostile/clown/longface, /mob/living/simple_animal/hostile/clown/honkling, /mob/living/simple_animal/hostile/clown/lube)
 	spawn_text = "вылезает из"
 	faction = list("clown")
-	cost = 200
+	cost = 100
 	layer = TURF_LAYER
 	density = FALSE
 
@@ -234,7 +234,7 @@
 	mob_types = list(/mob/living/simple_animal/hostile/clown/fleshclown)
 	spawn_text = "вылупляется из"
 	faction = list("clown")
-	cost = 400
+	cost = 200
 
 
 /obj/structure/spawner/clown/clownspider
@@ -248,7 +248,7 @@
 	mob_types = list(/mob/living/simple_animal/hostile/clown/infestor)
 	spawn_text = "жутким образом появляется из"
 	faction = list("clown")
-	cost = 600
+	cost = 300
 
 /obj/structure/spawner/clown/clownana
 	name = "гора бананов"
@@ -261,16 +261,16 @@
 	mob_types = list(/mob/living/simple_animal/hostile/clown/banana)
 	spawn_text = "вырастает из"
 	faction = list("clown")
-	cost = 500
+	cost = 250
 
 /obj/structure/spawner/clown/clownworm
 	name = "червивая стена"
 	desc = "Эта не стена, а уютный дом для сотен клоунов-червей."
 	icon_state = "clownworm"
 	icon = 'icons/obj/device.dmi'
-	max_integrity = 250
+	max_integrity = 500
 	max_mobs = 2
-	spawn_time = 250
+	spawn_time = 100
 	mob_types = list(/mob/living/simple_animal/hostile/clown/worm)
 	spawn_text = "выползает из"
 	faction = list("clown")
@@ -299,4 +299,4 @@
 	mob_types = list(/mob/living/simple_animal/hostile/clown/clownhulk, /mob/living/simple_animal/hostile/clown/clownhulk/chlown, /mob/living/simple_animal/hostile/clown/clownhulk/honcmunculus)
 	spawn_text = "выходит из"
 	faction = list("clown")
-	cost = 700
+	cost = 400

@@ -365,12 +365,12 @@
 	icon_living = "glutton"
 	speak = list("hey, buddy", "HONK!!!", "H-h-h-H-HOOOOONK!!!!", "HONKHONKHONK!!!", "HEY, BUCKO, GET BACK HERE!!!", "HOOOOOOOONK!!!")
 	emote_see = list("jiggles", "wobbles")
-	maxHealth = 1200
-	health = 800
+	maxHealth = 1800
+	health = 1200
 	mob_size = MOB_SIZE_LARGE
 	speed = 5
-	melee_damage_lower = 15
-	melee_damage_upper = 20
+	melee_damage_lower = 20
+	melee_damage_upper = 25
 	force_threshold = 10 //lots of fat to cushion blows.
 	damage_coeff = list(BRUTE = 1, BURN = 2, TOX = 1, CLONE = 2, STAMINA = 0, OXY = 0)
 	attack_verb_continuous = "slams"
@@ -449,6 +449,8 @@
 	myBuild.Grant(src)
 	plantSkin = new
 	plantSkin.Grant(src)
+	priority_announce("На станции [station_name()] обнаружен Апостол Хонкоматери. Заблокируйте любой внешний доступ, включая воздуховоды и вентиляцию.", "Боевая Тревога", ANNOUNCER_COMMANDREPORT)
+
 
 /mob/living/simple_animal/hostile/clown/fleshclown/Initialize(mapload)
 	. = ..()
@@ -522,7 +524,7 @@
 	flick("glutton_tongue",usr)
 	for(var/obj/machinery/light/L in view(6, user))
 		if (L.icon_state != "tube-broken")
-			user.adjustHealth(-30)
+			user.adjustHealth(-100)
 		L.on = 1
 		L.break_light_tube()
 	for(var/mob/living/carbon/human/M in get_hearers_in_view(10, user))
@@ -564,14 +566,14 @@
 
 // посадка кожи
 /datum/action/innate/glutton/plantSkin
-	name = "Вырастить кожу(50)"
+	name = "Вырастить кожу(25)"
 	desc = "Выращивает на полу рассадник кожи."
 	icon_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_plant"
 	background_icon_state = "bg_changeling"
 
 /datum/action/innate/fleshclown/plantSkin
-	name = "Вырастить кожу(50)"
+	name = "Вырастить кожу(25)"
 	desc = "Выращивает на полу рассадник кожи."
 	icon_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_plant"
@@ -584,7 +586,7 @@
 		return
 	var/turf/glutton_turf = get_turf(glutton)
 
-	if (glutton.biomass < 50)
+	if (glutton.biomass < 25)
 		to_chat(glutton, span_warning("Недостаточно плоти!"))
 		return FALSE
 	if(locate(/obj/structure/fleshbuilding/clownweeds/node/) in glutton_turf)
@@ -592,7 +594,7 @@
 		return FALSE
 	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!"))
 	new/obj/structure/fleshbuilding/clownweeds/node/(glutton.loc)
-	glutton.biomass = glutton.biomass - 50
+	glutton.biomass = glutton.biomass - 25
 	return TRUE
 
 /datum/action/innate/fleshclown/plantSkin/Activate()
@@ -602,7 +604,7 @@
 		return
 	var/turf/glutton_turf = get_turf(glutton)
 
-	if (glutton.biomass < 50)
+	if (glutton.biomass < 25)
 		to_chat(glutton, span_warning("Недостаточно плоти!"))
 		return FALSE
 	if(locate(/obj/structure/fleshbuilding/clownweeds/node/) in glutton_turf)
@@ -610,7 +612,7 @@
 		return FALSE
 	glutton.visible_message(span_alertalien("[glutton] выращивает на полу рассадник кожи!"))
 	new/obj/structure/fleshbuilding/clownweeds/node/(glutton.loc)
-	glutton.biomass = glutton.biomass - 50
+	glutton.biomass = glutton.biomass - 25
 	return TRUE
 
 
@@ -652,11 +654,11 @@
 	name = "Лепка плоти"
 	desc = "Слепить из накопленной плоти органическое здание."
 	var/list/structures = list(
-		"Маленькие клоуны (200)" = /obj/structure/spawner/clown/clownsmall,
-		"Клоуны-строители (400)" = /obj/structure/spawner/clown/clownbuilder,
-		"Банановые клоуны (500)" = /obj/structure/spawner/clown/clownana,
-		"Клоуны-пауки (600)" = /obj/structure/spawner/clown/clownspider,
-		"Элитные клоуны (700)" = /obj/structure/spawner/clown/clownbig)
+		"Маленькие клоуны (100)" = /obj/structure/spawner/clown/clownsmall,
+		"Клоуны-строители (200)" = /obj/structure/spawner/clown/clownbuilder,
+		"Банановые клоуны (250)" = /obj/structure/spawner/clown/clownana,
+		"Клоуны-пауки (300)" = /obj/structure/spawner/clown/clownspider,
+		"Элитные клоуны (400)" = /obj/structure/spawner/clown/clownbig)
 
 	icon_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_resin"
@@ -667,8 +669,8 @@
 	name = "Лепка плоти"
 	desc = "Слепить из накопленной плоти органическое здание."
 	var/list/lesserStructures = list(
-		"Преобразователь атмосферы (240)" = /obj/structure/fleshbuilding/clownatmos,
-		"Клоунская стена (100)" = /turf/closed/wall/clown)
+		"Преобразователь атмосферы (120)" = /obj/structure/fleshbuilding/clownatmos,
+		"Клоунская стена (50)" = /turf/closed/wall/clown)
 
 	icon_icon = 'icons/mob/actions/actions_clown.dmi'
 	button_icon_state = "alien_resin"
