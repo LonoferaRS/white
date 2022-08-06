@@ -291,7 +291,7 @@
 	if(!cuff_break)
 		visible_message(span_warning("[capitalize(src.name)] пытается снять [I]!"))
 		to_chat(src, span_notice("Пытаюсь снять [I]..."))
-		if(istype(I,/obj/item/restraints/handcuffs/cable) && src.job in GLOB.security_positions)
+		if(istype(I,/obj/item/restraints/handcuffs/cable) && src.job in (GLOB.security_positions))
 			if(prob(80))
 				var/obj/item/bodypart/arm = src.hand_bodyparts[src.active_hand_index]
 				to_chat(src, span_notice("Вспоминаю курс \"Как не быть закованным в стяжки\" и пытаюсь повторить действия инструктора."))
